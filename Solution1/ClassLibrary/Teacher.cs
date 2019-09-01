@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
+    public enum TypeTeacher
+    {
+        Docent,
+        Lector,
+        Accictent
+    }
+
     public class Teacher
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public Group GroupId { get; set; }
+
+        public TypeTeacher TeacherType;
+
 
         public static List<Teacher> _modelTeacher;
 
@@ -18,5 +28,20 @@ namespace ClassLibrary
         {
             _modelTeacher = new List<Teacher>();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_name"></param>
+        /// <param name="_type"></param>
+        /// <param name="_groupName"></param>
+        public Teacher(string _name, TypeTeacher _type, Group _groupName)
+        {
+            this.Id = Guid.NewGuid();
+            this.Name = _name;
+            this.TeacherType = _type;
+            this.GroupId = _groupName;
+        }
+
     }
 }

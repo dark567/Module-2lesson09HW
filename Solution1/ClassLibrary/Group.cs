@@ -17,5 +17,14 @@ namespace ClassLibrary
         {
             _modelGroup = new List<Group>();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_name"></param>
+        public Group(string _name)
+        {
+            this.Id = Guid.NewGuid();
+            this.Name = _name;
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace ConsoleApp
                 if (!Int32.TryParse(Console.ReadLine(), out ChoiceNomMenu) || !(ChoiceNomMenu >= 1 && ChoiceNomMenu <= 8))
                 {
                     Console.WriteLine("\t Invalid input. Try again:");
-
+                    Console.WriteLine("\t Please make your choice...");
                     ShowMenuInConsole();
                     continue;
                 }
@@ -36,9 +36,9 @@ namespace ConsoleApp
                     case 1: //Show ALL Groups
 
                         int index = 0;
-                        foreach (Student spw in LogicLayer.GetStudents)
+                        foreach (Group spw in LogicLayer.GetGroup)
                         {
-                            Console.WriteLine($"[{index++}] \t {spw.Id} \t {spw.Name} \t {spw.Age}");
+                            Console.WriteLine($"[{index++}] \t {spw.Id} \t {spw.Name}");
                         }
 
                         ShowMenuInConsole();
@@ -47,9 +47,9 @@ namespace ConsoleApp
                     case 2: //Show ALL Teachers
 
                         index = 0;
-                        foreach (Student spw in LogicLayer.GetStudents)
+                        foreach (Teacher spw in LogicLayer.GetTeacher)
                         {
-                            Console.WriteLine($"[{index++}] \t {spw.Id} \t {spw.Name} \t {spw.Age}");
+                            Console.WriteLine($"[{index++}] \t {spw.Id} \t {spw.Name} \t {spw.TeacherType} \t {spw?.GroupId.Name}");
                         }
 
                         ShowMenuInConsole();
@@ -68,11 +68,12 @@ namespace ConsoleApp
                         break;
                     case 8:
 
-              
+
                         Console.WriteLine("\t Quitting...");
                         MQuit = true;
                         break;
                     default:
+                        Console.WriteLine("Please make your choice...");
                         break;
                 }
             }
@@ -93,8 +94,9 @@ namespace ConsoleApp
 
         static void AddListForExample()
         {
-            LogicLayer.AddStudent(new Student("Jone White", null, 28));
-
+            LogicLayer.AddGroup(new Group("Class 1"));
+            LogicLayer.AddTeacher(new Teacher("Enshtein", TypeTeacher.Docent, new Group("Class 1")));
+            LogicLayer.AddStudent(new Student("Jone White", new Group("Class 1"), 28));
         }
     }
 }
