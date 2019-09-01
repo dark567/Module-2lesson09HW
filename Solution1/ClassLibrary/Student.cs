@@ -12,7 +12,7 @@ namespace ClassLibrary
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; } 
-        public Group GroupId { get; set; }
+        public Group Group { get; set; }
         public static List<Student> _modelStudent;
 
         static Student()
@@ -29,7 +29,7 @@ namespace ClassLibrary
         {
             this.Id = Guid.NewGuid();
             this.Name = _name;
-            this.GroupId = _groupName;
+            this.Group = _groupName;
             this.Age = _age;
         }
 

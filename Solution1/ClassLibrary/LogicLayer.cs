@@ -28,6 +28,7 @@ namespace ClassLibrary
                 return Teacher._modelTeacher.ToArray();
             }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -38,16 +39,18 @@ namespace ClassLibrary
                 return Student._modelStudent.ToArray();
             }
         }
+
         /// <summary>
-        /// 
+        /// Add Group
         /// </summary>
         /// <param name="_modelGroup"></param>
         public static void AddGroup(Group _modelGroup)
         {
             Group._modelGroup.Add(_modelGroup);
         }
+
         /// <summary>
-        /// 
+        /// Add Teacher
         /// </summary>
         /// <param name="_modelTeacher"></param>
         public static void AddTeacher(Teacher _modelTeacher)
@@ -55,12 +58,22 @@ namespace ClassLibrary
             Teacher._modelTeacher.Add(_modelTeacher);
         }
         /// <summary>
-        /// 
+        /// Add Student
         /// </summary>
         /// <param name="_modelStudent"></param>
-        public static void AddStudent(Student _modelStudent)
+        public static void AddStudent(Student _modelStudent, int Index = 0)
         {
             Student._modelStudent.Add(_modelStudent);
+           // Group.AddCount(Index); //todolist
+        }
+
+        /// <summary>
+        /// Remove Student
+        /// </summary>
+        /// <param name="Index">index list who removing</param>
+        public static void RemoveStudent(int Index)
+        {
+            Student._modelStudent.RemoveAt(Index);
         }
     }
 }

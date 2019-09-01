@@ -28,13 +28,12 @@ namespace ClassLibrary
             _modelTeacher = new List<Teacher>();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="_name"></param>
-        /// <param name="_type"></param>
-        /// <param name="_groupName"></param>
-        public Teacher(string _name, TypeTeacher _type)
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="_name"></param>
+       /// <param name="_type"></param>
+        public Teacher(string _name, TypeTeacher _type = TypeTeacher.Accictent)
         {
             this.Id = Guid.NewGuid();
             this.Name = _name;
