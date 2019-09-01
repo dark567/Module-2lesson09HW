@@ -17,7 +17,6 @@ namespace ClassLibrary
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public Group GroupId { get; set; }
 
         public TypeTeacher TeacherType;
 
@@ -35,12 +34,11 @@ namespace ClassLibrary
         /// <param name="_name"></param>
         /// <param name="_type"></param>
         /// <param name="_groupName"></param>
-        public Teacher(string _name, TypeTeacher _type, Group _groupName)
+        public Teacher(string _name, TypeTeacher _type)
         {
             this.Id = Guid.NewGuid();
             this.Name = _name;
             this.TeacherType = _type;
-            this.GroupId = _groupName;
         }
 
     }

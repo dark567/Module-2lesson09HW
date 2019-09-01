@@ -38,7 +38,7 @@ namespace ConsoleApp
                         int index = 0;
                         foreach (Group spw in LogicLayer.GetGroup)
                         {
-                            Console.WriteLine($"[{index++}] \t {spw.Id} \t {spw.Name}");
+                            Console.WriteLine($"[{index++}] \t {spw.Id} \t {spw.Name} \t {spw.Teacher.Name} \t {spw.CountStudents}");
                         }
 
                         ShowMenuInConsole();
@@ -49,7 +49,7 @@ namespace ConsoleApp
                         index = 0;
                         foreach (Teacher spw in LogicLayer.GetTeacher)
                         {
-                            Console.WriteLine($"[{index++}] \t {spw.Id} \t {spw.Name} \t {spw.TeacherType} \t {spw?.GroupId.Name}");
+                            Console.WriteLine($"[{index++}] \t {spw.Id} \t {spw.Name} \t {spw.TeacherType}");
                         }
 
                         ShowMenuInConsole();
@@ -79,6 +79,9 @@ namespace ConsoleApp
             }
         }
 
+        /// <summary>
+        /// Show Menu In Console
+        /// </summary>
         static void ShowMenuInConsole()
         {
             Console.WriteLine("\n Please choose one of the options:");
@@ -92,11 +95,23 @@ namespace ConsoleApp
             Console.WriteLine("\t [8] Exit the program");
         }
 
+        /// <summary>
+        /// Add List For Example
+        /// </summary>
         static void AddListForExample()
         {
-            LogicLayer.AddGroup(new Group("Class 1"));
-            LogicLayer.AddTeacher(new Teacher("Enshtein", TypeTeacher.Docent, new Group("Class 1")));
-            LogicLayer.AddStudent(new Student("Jone White", new Group("Class 1"), 28));
+            LogicLayer.AddTeacher(new Teacher("Anders Hejlsberg", TypeTeacher.Docent));
+            LogicLayer.AddStudent(new Student("Jone White", new Group("Group C#"), 25));
+            LogicLayer.AddGroup(new Group("Group C#", new Teacher("Anders Hejlsberg", TypeTeacher.Docent)));
+
+            LogicLayer.AddTeacher(new Teacher("James Arthur Gosling", TypeTeacher.Docent));
+            LogicLayer.AddStudent(new Student("Smith Red", new Group("Group Java"), 30));
+            LogicLayer.AddGroup(new Group("Group Java", new Teacher("James Arthur Gosling", TypeTeacher.Accictent)));
+
+            LogicLayer.AddTeacher(new Teacher("Tim Berners-Lee", TypeTeacher.Docent));
+            LogicLayer.AddStudent(new Student("Dan Black", new Group("Group HTML"), 41));
+            LogicLayer.AddGroup(new Group("Group HTML", new Teacher("Tim Berners-Lee", TypeTeacher.Lector)));
+
         }
     }
 }
