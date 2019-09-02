@@ -50,7 +50,7 @@ namespace ClassLibrary
         }
 
         /// <summary>
-        /// AddGroupStudentsCount
+        /// Add Group Students Count
         /// </summary>
         /// <param name="Index"></param>
         public static void AddGroupStudentsCount(int Index)
@@ -62,7 +62,10 @@ namespace ClassLibrary
                 Console.WriteLine($"Overload \"{Group._modelGroup[Index].Teacher.TeacherType}\" Count > 20");
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Green;
-                Group._modelGroup[Index].CountStudents = Group._modelGroup[Index].CountStudents + 1;
+
+                LogicLayer.AddGroup(new Group(Group._modelGroup[Index].Name+"_01", Group._modelGroup[Index].Teacher));
+                Group._modelGroup[Index+1].CountStudents = Group._modelGroup[Index+1].CountStudents + 1;
+                
             }
             if (Group._modelGroup[Index].Teacher.TeacherType == TypeTeacher.Lector && Group._modelGroup[Index].CountStudents >= 15)
             {
@@ -71,7 +74,9 @@ namespace ClassLibrary
                 Console.WriteLine($"Overload \"{Group._modelGroup[Index].Teacher.TeacherType}\" Count > 15");
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Green;
-                Group._modelGroup[Index].CountStudents = Group._modelGroup[Index].CountStudents + 1;
+
+                LogicLayer.AddGroup(new Group(Group._modelGroup[Index].Name + "_01", Group._modelGroup[Index].Teacher));
+                Group._modelGroup[Index + 1].CountStudents = Group._modelGroup[Index + 1].CountStudents + 1;
             }
             if (Group._modelGroup[Index].Teacher.TeacherType == TypeTeacher.Accictent && Group._modelGroup[Index].CountStudents >= 5)
             {
@@ -80,7 +85,9 @@ namespace ClassLibrary
                 Console.WriteLine($"Overload \"{Group._modelGroup[Index].Teacher.TeacherType}\" Count > 5");
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Green;
-                Group._modelGroup[Index].CountStudents = Group._modelGroup[Index].CountStudents + 1;
+
+                LogicLayer.AddGroup(new Group(Group._modelGroup[Index].Name + "_01", Group._modelGroup[Index].Teacher));
+                Group._modelGroup[Index + 1].CountStudents = Group._modelGroup[Index + 1].CountStudents + 1;
             }
             else
             {
