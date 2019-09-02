@@ -11,12 +11,12 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            bool MQuit = false;
+            bool MQuit = false;  // mQuit
 
             int ChoiceNomMenu = 0;
 
             //first filling
-            AddNEWListForExample();
+            AddNEWListForExample(); // AddNewListForExample
 
             //show menu
             ShowMenuInConsole();
@@ -33,7 +33,7 @@ namespace ConsoleApp
 
                 switch (ChoiceNomMenu)
                 {
-                    case 1: //Show ALL Groups
+                    case 1: //Show ALL Groups  //раз ты уже тут пишешь комент что это означет то создал бы просто Enum для пунктов меню
 
                         int index = 0;
                         foreach (Group spw in LogicLayer.GetGroup)
@@ -169,7 +169,7 @@ namespace ConsoleApp
                 Console.WriteLine($"[{index++}] \t {spw.Id} \t {spw.Name}");
             }
 
-            int StudentWhoRemoved;
+            int StudentWhoRemoved; // используй camalCase для переменый c UpperCase начинаются свойства
             do
             {
                 Console.Write("\t Write № who Delete:");
@@ -193,6 +193,7 @@ namespace ConsoleApp
         /// </summary>
         static void AddNEWListForExample()
         {
+            // магические числа в коде , сейчас мы знаем что означает 25 30 41 итд а через пол года вспомнишь ? выност в переменые\сетинги\константы с самодокументируемым названием
             LogicLayer.AddTeacher(new Teacher("Anders Hejlsberg", TypeTeacher.Docent));
             LogicLayer.AddStudent(new Student("Jone White", new Group("Group C#", new Teacher("Anders Hejlsberg", TypeTeacher.Docent)), 25));
             LogicLayer.AddGroup(new Group("Group C#", new Teacher("Anders Hejlsberg", TypeTeacher.Docent)));
