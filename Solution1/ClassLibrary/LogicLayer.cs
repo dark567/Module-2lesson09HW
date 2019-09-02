@@ -57,42 +57,36 @@ namespace ClassLibrary
         {
             if (Group._modelGroup[Index].Teacher.TeacherType == TypeTeacher.Docent && Group._modelGroup[Index].CountStudents >= 20)
             {
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"Overload \"{Group._modelGroup[Index].Teacher.TeacherType}\" Count > 20");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Green;
-
-                LogicLayer.AddGroup(new Group(Group._modelGroup[Index].Name+"_01", Group._modelGroup[Index].Teacher));
-                Group._modelGroup[Index+1].CountStudents = Group._modelGroup[Index+1].CountStudents + 1;
-                
+                OverloadCountStudents(Index);
             }
             if (Group._modelGroup[Index].Teacher.TeacherType == TypeTeacher.Lector && Group._modelGroup[Index].CountStudents >= 15)
             {
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"Overload \"{Group._modelGroup[Index].Teacher.TeacherType}\" Count > 15");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Green;
-
-                LogicLayer.AddGroup(new Group(Group._modelGroup[Index].Name + "_01", Group._modelGroup[Index].Teacher));
-                Group._modelGroup[Index + 1].CountStudents = Group._modelGroup[Index + 1].CountStudents + 1;
+                OverloadCountStudents(Index);
             }
             if (Group._modelGroup[Index].Teacher.TeacherType == TypeTeacher.Accictent && Group._modelGroup[Index].CountStudents >= 5)
             {
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"Overload \"{Group._modelGroup[Index].Teacher.TeacherType}\" Count > 5");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Green;
-
-                LogicLayer.AddGroup(new Group(Group._modelGroup[Index].Name + "_01", Group._modelGroup[Index].Teacher));
-                Group._modelGroup[Index + 1].CountStudents = Group._modelGroup[Index + 1].CountStudents + 1;
+                OverloadCountStudents(Index);
             }
             else
             {
                 Group._modelGroup[Index].CountStudents = Group._modelGroup[Index].CountStudents + 1;
             }
+        }
+
+        /// <summary>
+        /// DRY
+        /// </summary>
+        /// <param name="Index"></param>
+        public static void OverloadCountStudents(int Index)
+        {
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"Overload \"{Group._modelGroup[Index].Teacher.TeacherType}\" Count > 5");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            LogicLayer.AddGroup(new Group(Group._modelGroup[Index].Name + "_" + Index + 1, Group._modelGroup[Index].Teacher));
+            Group._modelGroup[Index + 1].CountStudents = Group._modelGroup[Index + 1].CountStudents + 1;
         }
 
         /// <summary>
