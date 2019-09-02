@@ -147,6 +147,8 @@ namespace ConsoleApp
 
                 LogicLayer.AddStudent(new Student(Name, Group._modelGroup[NomerGroup], Age));
 
+                LogicLayer.AddGroupStudentsCount(NomerGroup);
+
                 Console.WriteLine("\tSuccessfully");
             }
             catch (Exception e)
@@ -192,15 +194,15 @@ namespace ConsoleApp
         static void AddNEWListForExample()
         {
             LogicLayer.AddTeacher(new Teacher("Anders Hejlsberg", TypeTeacher.Docent));
-            LogicLayer.AddStudent(new Student("Jone White", new Group("Group C#"), 25));
+            LogicLayer.AddStudent(new Student("Jone White", new Group("Group C#", new Teacher("Anders Hejlsberg", TypeTeacher.Docent)), 25));
             LogicLayer.AddGroup(new Group("Group C#", new Teacher("Anders Hejlsberg", TypeTeacher.Docent)));
 
             LogicLayer.AddTeacher(new Teacher("James Arthur Gosling", TypeTeacher.Accictent));
-            LogicLayer.AddStudent(new Student("Smith Red", new Group("Group Java"), 30));
+            LogicLayer.AddStudent(new Student("Smith Red", new Group("Group Java", new Teacher("James Arthur Gosling", TypeTeacher.Accictent)), 30));
             LogicLayer.AddGroup(new Group("Group Java", new Teacher("James Arthur Gosling", TypeTeacher.Accictent)));
 
             LogicLayer.AddTeacher(new Teacher("Tim Berners-Lee", TypeTeacher.Lector));
-            LogicLayer.AddStudent(new Student("Dan Black", new Group("Group HTML"), 41));
+            LogicLayer.AddStudent(new Student("Dan Black", new Group("Group HTML", new Teacher("Tim Berners-Lee", TypeTeacher.Lector)), 41));
             LogicLayer.AddGroup(new Group("Group HTML", new Teacher("Tim Berners-Lee", TypeTeacher.Lector)));
 
         }

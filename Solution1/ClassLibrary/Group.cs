@@ -51,17 +51,36 @@ namespace ClassLibrary
         static Group()
         {
             _modelGroup = new List<Group>();
+
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="_name"></param>
-        public Group(string _name, Teacher _teacher = null, int CountStudents = 0)
+        public Group(string _name, Teacher _teacher, int CountStudents = 0)
         {
             this.Id = Guid.NewGuid();
             this.Name = _name;
             this.Teacher = _teacher;
-            this.CountStudents ++;
+            this.CountStudents++;
+            //if (this.CountStudents <= 20 && _teacher.TeacherType == TypeTeacher.Docent)
+            //{
+            //    this.CountStudents++;
+            //}
+            //else if (this.CountStudents <= 15 && _teacher.TeacherType == TypeTeacher.Lector)
+            //{
+            //    this.CountStudents++;
+            //}
+            //else if (this.CountStudents <= 5 && _teacher.TeacherType == TypeTeacher.Accictent)
+            //{
+            //    this.CountStudents++;
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Overload");
+            //    this.CountStudents++;
+            //}
+
         }
 
         /// <summary>
